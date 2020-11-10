@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace LaboratoryWork4
@@ -39,6 +33,15 @@ namespace LaboratoryWork4
                 MessageBox.Show("Некорректные данные!");
                 return;
             }
+            double x = double.Parse(Argument.Text);
+            if ((x == 1) && (x / (x - 1) < 0))
+            {
+                Result2.Text = "Функция не существует!";
+            }
+            else
+            {
+                Result2.Text = Math.Sqrt(x / (x - 1)).ToString();
+            }
         }
         private void Calculate3_Click(object sender, EventArgs e)
         {
@@ -46,6 +49,15 @@ namespace LaboratoryWork4
             {
                 MessageBox.Show("Некорректные данные!");
                 return;
+            }
+            double x = double.Parse(Argument.Text);
+            if ((x < 0) && (x == 1))
+            {
+                Result3.Text = "Функция не существует!";
+            }
+            else
+            {
+                Result3.Text = ((x + 1) / (x - 1) + Math.Sqrt(x * x)).ToString();
             }
         }
     }
